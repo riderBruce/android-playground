@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Week2App</string>
+    <string name="product_name">Product name</string>
+    <string name="save">Save</string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="saved">Saved</string>
+    <string name="not_saved">not saved</string>
+    <string name="view">View</string>
+    <string-array name="group">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Week's Summary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWeeklyActiveMinutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:text="Total active minutes: 0 / 1050"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvRunningWeeklyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Running: 0 / 210 (0%)" />
+
+                <TextView
+                    android:id="@+id/tvWalkingWeeklyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Walking: 0 / 210 (0%)" />
+
+                <TextView
+                    android:id="@+id/tvBikingWeeklyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Biking: 0 / 210 (0%)" />
+
+                <TextView
+                    android:id="@+id/tvSwimmingWeeklyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Swimming: 0 / 210 (0%)" />
+
+                <TextView
+                    android:id="@+id/tvStandUpWeeklyGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:layout_marginBottom="10dp"
+                    android:text="Stand-up: 0 / 210 (0%)" />
+
+                <ProgressBar
+                    android:id="@+id/progressWeeklySummary"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="60"
+                    android:progress="35" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Quick Search"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/imgQuickWalking"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/walking"
+                    android:contentDescription="Walk" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/imgQuickRunning"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/running"
+                    android:contentDescription="Run" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/imgQuickBiking"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/biking"
+                    android:contentDescription="Bike" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/imgQuickSwimming"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/swimming"
+                    android:contentDescription="Swim" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/imgQuickStandUp"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/standup"
+                    android:contentDescription="Stand" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvWeatherCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:text="Not set"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay1" style="@style/WeatherDayLabel" android:text="S" />
+                            <ImageView android:id="@+id/imgWeatherDay1" style="@style/WeatherIcon" android:src="@drawable/ic_weather_sun" android:contentDescription="Sunny" />
+                            <TextView android:id="@+id/tvWeatherHigh1" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow1" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay2" style="@style/WeatherDayLabel" android:text="M" />
+                            <ImageView android:id="@+id/imgWeatherDay2" style="@style/WeatherIcon" android:src="@drawable/ic_weather_cloud" android:contentDescription="Cloudy" />
+                            <TextView android:id="@+id/tvWeatherHigh2" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow2" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay3" style="@style/WeatherDayLabel" android:text="T" />
+                            <ImageView android:id="@+id/imgWeatherDay3" style="@style/WeatherIcon" android:src="@drawable/ic_weather_rain" android:contentDescription="Rainy" />
+                            <TextView android:id="@+id/tvWeatherHigh3" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow3" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay4" style="@style/WeatherDayLabel" android:text="W" />
+                            <ImageView android:id="@+id/imgWeatherDay4" style="@style/WeatherIcon" android:src="@drawable/ic_weather_snow" android:contentDescription="Snowy" />
+                            <TextView android:id="@+id/tvWeatherHigh4" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow4" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay5" style="@style/WeatherDayLabel" android:text="T" />
+                            <ImageView android:id="@+id/imgWeatherDay5" style="@style/WeatherIcon" android:src="@drawable/ic_weather_sun" android:contentDescription="Sunny" />
+                            <TextView android:id="@+id/tvWeatherHigh5" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow5" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay6" style="@style/WeatherDayLabel" android:text="F" />
+                            <ImageView android:id="@+id/imgWeatherDay6" style="@style/WeatherIcon" android:src="@drawable/ic_weather_cloud" android:contentDescription="Cloudy" />
+                            <TextView android:id="@+id/tvWeatherHigh6" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow6" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                        <LinearLayout style="@style/WeatherDayColumn" android:layout_width="36dp" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/tvWeatherDay7" style="@style/WeatherDayLabel" android:text="S" />
+                            <ImageView android:id="@+id/imgWeatherDay7" style="@style/WeatherIcon" android:src="@drawable/ic_weather_rain" android:contentDescription="Rainy" />
+                            <TextView android:id="@+id/tvWeatherHigh7" style="@style/WeatherTemperature" android:text="--°" />
+                            <TextView android:id="@+id/tvWeatherLow7" style="@style/WeatherTemperature" android:text="--°" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

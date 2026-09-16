@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Move Mate</string>
+
+
+    <string-array name="preferred_activity_options">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Swimming</item>
+        <item>StandUp</item>
+    </string-array>
+
+    <string-array name="distance_unit_options">
+        <item>km</item>
+        <item>mile</item>
+    </string-array>
+
+    <string-array name="move_type_options">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Swimming</item>
+        <item>StandUp</item>
+    </string-array>
+
+    <string-array name="duration_options">
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>90</item>
+    </string-array>
+
+    <string-array name="distance_options">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="intensity_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+</resources>
