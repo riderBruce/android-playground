@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="convert_btn_text">Convert</string>
+    <string name="dollars_hint">dollars</string>
+    <string name="euros_placeholder">Euros</string>
+    <string name="no_value_string">Please enter a number.</string>
+</resources>

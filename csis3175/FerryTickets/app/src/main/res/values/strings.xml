@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ferry Tickets</string>
+    
+    <string-array name="trip_to">
+        <item>to Catalina Island</item>
+        <item>to Long Beach</item>
+    </string-array>
+
+    <string name="spinner_prompt">Select route</string>
+</resources>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edtBillAmountInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:ems="10"
+        android:hint="@string/bill_amount_hint"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#78909C"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBillAmountLabel"
+        app:layout_constraintEnd_toStartOf="@+id/btnTipDecrease" />
+
+    <TextView
+        android:id="@+id/tvPercentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/tip_percent_label"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvBillAmountLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvBillAmountLabel" />
+
+    <TextView
+        android:id="@+id/tvTotalAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/total_amount_label"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvTipLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
+
+    <TextView
+        android:id="@+id/tvTipAmountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/tip_amount_initial"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTipLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvTipPercentValue"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipPercentValue" />
+
+    <Button
+        android:id="@+id/btnTipDecrease"
+        android:layout_width="@dimen/buttons_width_height"
+        android:layout_height="@dimen/buttons_width_height"
+        android:layout_marginEnd="8dp"
+        android:paddingHorizontal="@dimen/buttons_padding"
+        android:text="@string/tip_decrease_button_label"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTipPercentValue"
+        app:layout_constraintEnd_toStartOf="@+id/btnTipIncrease" />
+
+    <TextView
+        android:id="@+id/tvTipLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/tip_amount_label"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvPercentLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvPercentLabel" />
+
+    <TextView
+        android:id="@+id/tvTotalAnountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/total_amount_initial"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalAmountLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvTipAmountValue"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipAmountValue" />
+
+    <Button
+        android:id="@+id/btnTipIncrease"
+        android:layout_width="@dimen/buttons_width_height"
+        android:layout_height="@dimen/buttons_width_height"
+        android:layout_marginEnd="92dp"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/tip_increase_button_label"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTipDecrease"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTipPercentValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/tip_percent_initial"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPercentLabel"
+        app:layout_constraintEnd_toEndOf="@+id/edtBillAmountInput"
+        app:layout_constraintTop_toBottomOf="@+id/edtBillAmountInput" />
+
+    <TextView
+        android:id="@+id/tvBillAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/bill_amount_label"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

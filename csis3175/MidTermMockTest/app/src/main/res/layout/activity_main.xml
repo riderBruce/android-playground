@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:text="Car monthly amount Calculator"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtAmount"
+        android:hint="Input the car amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tvLoanTermLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Loan Term"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="51dp" />
+
+    <Spinner
+        android:id="@+id/spnLoanTerm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/tvLoanTermLabel"
+        tools:layout_editor_absoluteY="83dp" />
+
+    <Switch
+        android:id="@+id/swcInsurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="Insurance needed? "
+        android:layout_gravity="end"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+
+        tools:layout_editor_absoluteY="220dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Select : "
+            android:gravity="center"/>
+
+        <RadioButton
+            android:id="@+id/rbNewCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Car" />
+
+        <RadioButton
+            android:id="@+id/rbUsedCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Used Car" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/swcInsurance"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:textSize="30sp"
+        android:text="Result"
+        app:layout_constraintStart_toStartOf="@+id/btnCalculate"
+        tools:layout_editor_absoluteY="396dp" />
+
+
+
+</LinearLayout>
