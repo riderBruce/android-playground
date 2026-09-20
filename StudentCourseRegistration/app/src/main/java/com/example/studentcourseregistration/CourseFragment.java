@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CourseFragment extends Fragment {
-    public interface CourseFragmentListener {
+    public interface CourseFragmentListener extends CourseAdapter.OnCourseClickListener {
         boolean onAddCourseRequested(Course course);
         List<CourseEnrollmentData> onRequestAllCourses();
         List<Student> onRequestAllStudents();
@@ -63,7 +63,7 @@ public class CourseFragment extends Fragment {
 
         rvCourses.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        adapter = new CourseAdapter((CourseAdapter.OnCourseClickListener) requireActivity());
+        adapter = new CourseAdapter(listener);
         rvCourses.setAdapter(adapter);
 
         adapter.setCourses(listener.onRequestAllCourses());

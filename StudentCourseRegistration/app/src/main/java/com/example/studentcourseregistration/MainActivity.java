@@ -25,10 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements StudentFragment.StudentFragmentListener,
-        StudentAdapter.OnStudentClickListener,
-        CourseFragment.CourseFragmentListener,
-        CourseAdapter.OnCourseClickListener
-
+        CourseFragment.CourseFragmentListener
 {
 
     private FragmentManager manager;
@@ -46,8 +43,9 @@ public class MainActivity extends AppCompatActivity
             return insets;
         });
 
-        manager = getSupportFragmentManager();
         schoolDatabaseHelper = new SchoolDatabaseHelper(this);
+
+        manager = getSupportFragmentManager();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 

@@ -22,7 +22,7 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 
 public class StudentFragment extends Fragment {
-    public interface StudentFragmentListener {
+    public interface StudentFragmentListener extends StudentAdapter.OnStudentClickListener {
         void onAddStudentRequested(Student student);
         List<Student> onRequestAllStudents();
     }
@@ -50,7 +50,7 @@ public class StudentFragment extends Fragment {
         manager = new LinearLayoutManager(getContext());
         rvStudents.setLayoutManager(manager);
 
-        adapter = new StudentAdapter((StudentAdapter.OnStudentClickListener) requireActivity());
+        adapter = new StudentAdapter(listener);
         rvStudents.setAdapter(adapter);
 
         adapter.setStudents(listener.onRequestAllStudents());
