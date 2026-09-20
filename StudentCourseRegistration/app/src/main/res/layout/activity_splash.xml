@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splash_background"
-    tools:context=".activities.SplashActivity">
+    tools:context=".SplashActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/outline_directions_bike_24"
+        android:text="Student\nCourse\nRegistration"
+        android:drawableBottom="@drawable/outline_ads_click_40"
         android:drawablePadding="15dp"
-        android:text="Move Mate"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"

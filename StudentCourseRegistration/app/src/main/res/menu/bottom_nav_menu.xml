@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navStudent"
+        android:icon="@drawable/outline_accessibility_new_24"
+        android:title="Student" />
+    <item
+        android:id="@+id/navCourse"
+        android:icon="@drawable/outline_ads_click_24"
+        android:title="Course" />
+</menu>
