@@ -18,8 +18,8 @@ import java.util.List;
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder> {
 
     public interface OnStudentClickListener {
-        void onRequestDeleteStudentClicked(int id);
-        void onRequestUpdateStudentClicked(Student student);
+        void onDeleteStudentClicked(int id);
+        void onUpdateStudentClicked(Student student);
     }
 
     private final OnStudentClickListener listener;
@@ -72,7 +72,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             btnUpdate.setOnClickListener(v -> {
                 int position = getBindingAdapterPosition();
                 if (position !=RecyclerView.NO_POSITION && listener != null){
-                    listener.onRequestUpdateStudentClicked(students.get(position));
+                    listener.onUpdateStudentClicked(students.get(position));
                 }
             });
 
@@ -80,7 +80,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             btnDelete.setOnClickListener(v -> {
                 int position = getBindingAdapterPosition();
                 if (position != RecyclerView.NO_POSITION && listener != null) {
-                    listener.onRequestDeleteStudentClicked(students.get(position).getStudentId());
+                    listener.onDeleteStudentClicked(students.get(position).getStudentId());
                 }
             });
         }

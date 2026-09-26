@@ -26,11 +26,14 @@ import org.jspecify.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseFragment extends Fragment {
-    public interface CourseFragmentListener extends CourseAdapter.OnCourseClickListener {
-        boolean onAddCourseRequested(Course course);
+public class CourseFragment extends Fragment implements  CourseAdapter.OnCourseClickListener {
+
+    public interface CourseFragmentListener {
+        boolean onRequestAddCourse(Course course);
         List<CourseEnrollmentData> onRequestAllCourses();
         List<Student> onRequestAllStudents();
+        void onRequestDeleteCourse(int id);
+        void onRequestUpdateCourse(Course course);
     }
 
     private CourseFragmentListener listener;
@@ -63,7 +66,7 @@ public class CourseFragment extends Fragment {
 
         rvCourses.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        adapter = new CourseAdapter(listener);
+        adapter = new CourseAdapter(this);
         rvCourses.setAdapter(adapter);
 
         adapter.setCourses(listener.onRequestAllCourses());
@@ -86,9 +89,23 @@ public class CourseFragment extends Fragment {
         int position = spnStudentId.getSelectedItemPosition();
 
         Course course = new Course(courseName, students.get(position).getStudentId());
-        if (listener != null && listener.onAddCourseRequested(course)) {
+        if (listener != null && listener.onRequestAddCourse(course)) {
             refreshCourses();
 
+        }
+    }
+
+    @Override
+    public void onClickDeleteCourse(int id) {
+        if (listener != null) {
+            listener.onRequestDeleteCourse(id);
+        }
+    }
+
+    @Override
+    public void onClickUpdateCourse(Course course) {
+        if (listener != null) {
+            listener.onRequestUpdateCourse(course);
         }
     }
 

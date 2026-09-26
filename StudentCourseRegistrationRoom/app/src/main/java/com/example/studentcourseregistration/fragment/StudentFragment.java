@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studentcourseregistration.R;
 import com.example.studentcourseregistration.adapters.StudentAdapter;
 import com.example.studentcourseregistration.models.Student;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
@@ -24,15 +26,18 @@ import java.util.List;
 public class StudentFragment extends Fragment implements StudentAdapter.OnStudentClickListener {
 
 
-    public interface StudentFragmentListener extends StudentAdapter.OnStudentClickListener {
-        void onAddStudentRequested(Student student);
+    public interface StudentFragmentListener {
+        void onRequestAddStudent(Student student);
         List<Student> onRequestAllStudents();
+        void onRequestDeleteStudent(int id);
+        void onRequestUpdateStudent(Student student);
     }
 
     private StudentFragmentListener listener;
 
     EditText edtStudentName, edtStudentEmail;
     Button btnAddStudent;
+    BottomSheetDialog dialog;
 
     RecyclerView rvStudents;
     RecyclerView.LayoutManager manager;
@@ -52,10 +57,11 @@ public class StudentFragment extends Fragment implements StudentAdapter.OnStuden
         manager = new LinearLayoutManager(getContext());
         rvStudents.setLayoutManager(manager);
 
-        adapter = new StudentAdapter(listener);
+        adapter = new StudentAdapter(this);
         rvStudents.setAdapter(adapter);
 
         adapter.setStudents(listener.onRequestAllStudents());
+
 
         return view;
     }
@@ -72,18 +78,47 @@ public class StudentFragment extends Fragment implements StudentAdapter.OnStuden
         Student student = new Student(edtStudentName.getText().toString(), edtStudentEmail.getText().toString());
 
         if (listener != null) {
-            listener.onAddStudentRequested(student);
+            listener.onRequestAddStudent(student);
             this.refreshStudents();
         }
     }
     @Override
-    public void onRequestDeleteStudentClicked(int id) {
-        listener.onRequestDeleteStudentClicked(id);
+    public void onDeleteStudentClicked(int id) {
+        if (listener != null) {
+            listener.onRequestDeleteStudent(id);
+        }
     }
 
     @Override
-    public void onRequestUpdateStudentClicked(Student student) {
-        listener.onRequestUpdateStudentClicked(student);
+    public void onUpdateStudentClicked(Student student) {
+        showUpdateStudentSheet(student);
+    }
+
+    private void showUpdateStudentSheet(Student student) {
+        dialog = new BottomSheetDialog(requireContext());
+
+        View sheetView = getLayoutInflater().inflate(R.layout.bottom_sheet_update_student, null);
+
+        TextInputEditText edtUpdateStudentName = sheetView.findViewById(R.id.edtUpdateStudentName);
+        TextInputEditText edtUpdateStudentEmail = sheetView.findViewById(R.id.edtUpdateStudentEmail);
+        Button btnUpdateStudent = sheetView.findViewById(R.id.btnUpdateStudent);
+
+        edtUpdateStudentName.setText(student.getStudentName());
+        edtUpdateStudentEmail.setText(student.getEmail());
+
+        btnUpdateStudent.setOnClickListener(view -> {
+            String name = String.valueOf(edtUpdateStudentName.getText());
+            String email = String.valueOf(edtUpdateStudentEmail.getText());
+
+            Student updatedStudent = new Student(student.getStudentId(), name, email);
+            if (listener != null) {
+                listener.onRequestUpdateStudent(updatedStudent);
+            }
+            dialog.dismiss();
+        });
+
+        dialog.setContentView(sheetView);
+        dialog.show();
     }
 
     @Override

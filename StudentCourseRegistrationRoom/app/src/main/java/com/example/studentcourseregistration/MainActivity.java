@@ -27,11 +27,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements StudentFragment.StudentFragmentListener,
-        CourseFragment.CourseFragmentListener
+                    CourseFragment.CourseFragmentListener
 {
 
     private FragmentManager manager;
     private BottomNavigationView bottomNavigationView;
+
 //    private SchoolDatabaseHelper schoolDatabaseHelper;
 
     private StudentDao studentDao;
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onAddStudentRequested(Student student) {
+    public void onRequestAddStudent(Student student) {
         if (studentDao.addStudent(student)>0) {
             Toast.makeText(this, "Student added successfully", Toast.LENGTH_SHORT).show();
         } else {
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestDeleteStudentClicked(int id) {
+    public void onRequestDeleteStudent(int id) {
         if (studentDao.deleteStudentById(id) > 0) {
             refreshStudentList();
             Toast.makeText(this, "Student deleted successfully", Toast.LENGTH_SHORT).show();
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestUpdateStudentClicked(Student student) {
+    public void onRequestUpdateStudent(Student student) {
         if (studentDao.updateStudent(student) > 0) {
             refreshStudentList();
             Toast.makeText(this, "Student updated successfully", Toast.LENGTH_SHORT).show();
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onAddCourseRequested(Course course) {
+    public boolean onRequestAddCourse(Course course) {
         boolean added = courseDao.addCourse(course) > 0;
         Toast.makeText(this, added ? "Course added successfully" : "Course add failed",
                 Toast.LENGTH_SHORT).show();
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestDeleteCourseClicked(int id) {
+    public void onRequestDeleteCourse(int id) {
         if (courseDao.deleteCourseById(id)>0) {
             refreshCourseList();
             Toast.makeText(this, "Course deleted successfully", Toast.LENGTH_SHORT).show();
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestUpdateCourseClicked(Course course) {
+    public void onRequestUpdateCourse(Course course) {
         if (courseDao.updateCourse(course)>0) {
             refreshCourseList();
             Toast.makeText(this, "Course updated successfully", Toast.LENGTH_SHORT).show();

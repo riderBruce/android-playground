@@ -19,8 +19,8 @@ import java.util.List;
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
 
     public interface OnCourseClickListener {
-        void onRequestDeleteCourseClicked(int id);
-        void onRequestUpdateCourseClicked(Course course);
+        void onClickDeleteCourse(int id);
+        void onClickUpdateCourse(Course course);
     }
 
     private final OnCourseClickListener listener;
@@ -75,7 +75,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                 int position = getBindingAdapterPosition();
                 if (position !=RecyclerView.NO_POSITION && listener != null){
                     CourseEnrollmentData enrollment = courses.get(position);
-                    listener.onRequestUpdateCourseClicked(new Course(
+                    listener.onClickUpdateCourse(new Course(
                             enrollment.getCourseId(), enrollment.getCourseName(),
                             enrollment.getStudentId()));
                 }
@@ -85,7 +85,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
             btnDelete.setOnClickListener(v -> {
                 int position = getBindingAdapterPosition();
                 if (position != RecyclerView.NO_POSITION && listener != null) {
-                    listener.onRequestDeleteCourseClicked(courses.get(position).getCourseId());
+                    listener.onClickDeleteCourse(courses.get(position).getCourseId());
                 }
             });
         }
