@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ViewDemo</string>
+    <string name="text_title">Line 1 \nLine 2\nLine 3</string>
+    <string name="text_show_text">Show Text</string>
+    <string name="text_show_image">Show Image</string>
+    <string name="txt_show_both">Show Both</string>
+</resources>
