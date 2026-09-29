@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FregmentAppDemo</string>
+    <string name="btn_text">Show Student List</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_list">text list</string>
+    <string name="line1">line1</string>
+</resources>
