@@ -88,35 +88,54 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onRequestAddStudent(Student student) {
-        if (studentDao.addStudent(student)>0) {
-            Toast.makeText(this, "Student added successfully", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Student add failed", Toast.LENGTH_SHORT).show();
+        try {
+            if (studentDao.addStudent(student)>0) {
+                Toast.makeText(this, "Student added successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Student add failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(this, "database fails", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public List<Student> onRequestAllStudents() {
-        return studentDao.getAllStudents();
+        try {
+            return studentDao.getAllStudents();
+        }
+        catch (Exception e) {
+            Toast.makeText(this, "database fails", Toast.LENGTH_SHORT).show();
+        }
+        return null;
     }
 
     @Override
     public void onRequestDeleteStudent(int id) {
-        if (studentDao.deleteStudentById(id) > 0) {
-            refreshStudentList();
-            Toast.makeText(this, "Student deleted successfully", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Student deleted failed", Toast.LENGTH_SHORT).show();
+        try {
+            if (studentDao.deleteStudentById(id) > 0) {
+                refreshStudentList();
+                Toast.makeText(this, "Student deleted successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Student deleted failed", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "database fails", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onRequestUpdateStudent(Student student) {
-        if (studentDao.updateStudent(student) > 0) {
-            refreshStudentList();
-            Toast.makeText(this, "Student updated successfully", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Student update failed", Toast.LENGTH_SHORT).show();
+        try {
+            if (studentDao.updateStudent(student) > 0) {
+                refreshStudentList();
+                Toast.makeText(this, "Student updated successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Student update failed", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "database fails", Toast.LENGTH_SHORT).show();
         }
     }
 
