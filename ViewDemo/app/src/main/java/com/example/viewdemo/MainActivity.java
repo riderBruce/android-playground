@@ -21,6 +21,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     final String TAG = "VIEW_DEMO";
+    boolean showingText = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +55,11 @@ public class MainActivity extends AppCompatActivity {
             tvTitle.setCompoundDrawablePadding(16);
         }
 
+
+
         btnShowTextOrImage.setOnClickListener(v->{
-            if (btnShowTextOrImage.getText().equals(getString(R.string.text_show_text))){
+            showingText = !showingText;
+            if (showingText) {
                 tvTitle.setVisibility(VISIBLE);
                 ivSample.setVisibility(INVISIBLE);
                 btnShowTextOrImage.setText(R.string.text_show_image);
@@ -64,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
                 btnShowTextOrImage.setText(R.string.text_show_text);
             }
         });
+
+//        btnShowTextOrImage.setOnClickListener(v->{
+//            if (btnShowTextOrImage.getText().equals(getString(R.string.text_show_text))){
+//                tvTitle.setVisibility(VISIBLE);
+//                ivSample.setVisibility(INVISIBLE);
+//                btnShowTextOrImage.setText(R.string.text_show_image);
+//            } else {
+//                tvTitle.setVisibility(GONE);
+//                ivSample.setVisibility(VISIBLE);
+//                btnShowTextOrImage.setText(R.string.text_show_text);
+//            }
+//        });
 
         btnShowBoth.setOnClickListener(v->{
             tvTitle.setVisibility(VISIBLE);
