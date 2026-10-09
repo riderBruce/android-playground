@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CustomTouchListenerPractice</string>
+    <string name="tite_text">line 1\nline 2\nline 3</string>
+    <string name="show_only_image">Show only image</string>
+    <string name="show_only_text">Show only text</string>
+    <string name="show_both">Show Both</string>
+    <string name="bird">bird</string>
+</resources>
