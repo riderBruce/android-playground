@@ -7,4 +7,6 @@
     <string name="line1">line1</string>
     <string name="student_details">Student Details</string>
     <string name="student_id_text">Student Id</string>
+    <string name="card_name">card_name</string>
+    <string name="card_id">card_id</string>
 </resources>

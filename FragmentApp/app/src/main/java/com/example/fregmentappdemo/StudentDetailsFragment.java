@@ -23,11 +23,15 @@ public class StudentDetailsFragment extends Fragment {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            int id = bundle.getInt("student_id", 999);
-            String studentName = bundle.getString("student_name", "n/a");
+//            int id = bundle.getInt("student_id", 999);
+//            String studentName = bundle.getString("student_name", "n/a");
+//
+//            binding.tvStudentId.setText(String.valueOf(id));
+//            binding.tvStudentName.setText(studentName);
 
-            binding.tvStudentId.setText(String.valueOf(id));
-            binding.tvStudentName.setText(studentName);
+            Student student = (Student) bundle.getSerializable("student");
+            binding.tvStudentId.setText(String.valueOf(student.getId()));
+            binding.tvStudentName.setText(student.getName());
         }
 
         binding.btnBack.setOnClickListener(v->{

@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setupButtons();
+
+    }
+
+    private void setupButtons() {
         binding.btnSend.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             String name = binding.edtName.getText().toString();
@@ -36,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         binding.btnCall.setOnClickListener(view -> placeACall());
         binding.btnEmail.setOnClickListener(view -> sendAnEmail());
         binding.btnMap.setOnClickListener(view -> openMap());
-
     }
+
     public void openWebsite(){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
         startActivity(intent);
