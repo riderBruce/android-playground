@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/tvFeedbackTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_margin="24dp" android:text="Feedback Management" android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/btgFeedbackStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFeedbackTitle">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnPending" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="Pending" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnReviewed" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reviewed" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFeedback"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btgFeedbackStatus"
+        tools:listitem="@android:layout/simple_list_item_2" />
+
+    <TextView android:id="@+id/tvEmptyFeedback" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No feedback to review." android:visibility="gone" app:layout_constraintBottom_toBottomOf="@id/rvFeedback" app:layout_constraintEnd_toEndOf="@id/rvFeedback" app:layout_constraintStart_toStartOf="@id/rvFeedback" app:layout_constraintTop_toTopOf="@id/rvFeedback" tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

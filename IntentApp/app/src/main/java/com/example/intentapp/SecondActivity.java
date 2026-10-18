@@ -1,5 +1,6 @@
 package com.example.intentapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +28,14 @@ public class SecondActivity extends AppCompatActivity {
 //            binding.tvOutput.setText("Name: "+ name + ", GPA: "+gpa);
             Student student = getIntent().getSerializableExtra("student_data", Student.class);
             binding.tvOutput.setText(student.toString());
+
+            binding.btnSendBack.setOnClickListener(view -> {
+                Intent intentResult = new Intent();
+                intentResult.putExtra("student_data", student.toString());
+                setResult(RESULT_OK, intentResult);
+                finish();
+            });
         }
+
     }
 }

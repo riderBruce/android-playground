@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -14,6 +16,18 @@ import com.example.intentapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    private ActivityResultLauncher<Intent> launcher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    Intent data = result.getData();
+                    if (data != null) {
+                        String name = data.getStringExtra("student_data");
+                        binding.tvResult.setText(name);
+                    }
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
             Student student = new Student(name, gpa);
             intent.putExtra("student_data", student);
 
-            startActivity(intent);
+//            startActivity(intent);
+            launcher.launch(intent);
         });
         binding.btnOpenWeb.setOnClickListener(view -> openWebsite());
         binding.btnCall.setOnClickListener(view -> placeACall());

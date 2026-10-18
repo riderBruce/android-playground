@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSearch"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Search name, address, or neighbourhood"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/edtSearch" android:layout_width="match_parent" android:layout_height="wrap_content" android:imeOptions="actionSearch" android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/llFilters"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilSearch">
+        <Spinner android:id="@+id/spTypeFilter" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:contentDescription="Outlet type filter" />
+        <Space android:layout_width="12dp" android:layout_height="1dp" />
+        <Spinner android:id="@+id/spAccessFilter" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:contentDescription="Access condition filter" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cbFavoritesOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Show favourites only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llFilters" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLocations"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbFavoritesOnly"
+        tools:listitem="@android:layout/simple_list_item_2" />
+
+    <TextView android:id="@+id/tvNoResults" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No matching charging locations." android:visibility="gone" app:layout_constraintBottom_toBottomOf="@id/rvLocations" app:layout_constraintEnd_toEndOf="@id/rvLocations" app:layout_constraintStart_toStartOf="@id/rvLocations" app:layout_constraintTop_toTopOf="@id/rvLocations" tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

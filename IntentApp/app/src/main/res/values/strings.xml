@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">IntentApp</string>
     <string name="btn_send_data">Send Data</string>
+    <string name="send_back">Send Back</string>
 </resources>
